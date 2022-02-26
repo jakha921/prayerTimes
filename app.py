@@ -36,7 +36,7 @@ menu = ReplyKeyboardMarkup(
 )
 
 
-@dp.message_handler(Command("start"))
+@dp.message_handler(commands=['start'])
 async def show_menu(message: types.Message):
     await message.reply("Танланг:", reply_markup=menu)
 
