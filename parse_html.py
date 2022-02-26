@@ -43,7 +43,7 @@ def get_prayer_times_for_tomorrow():
 def get_prayer_times_for_three_days():
     today = datetime.now().day
     currentMonth= datetime.now().month
-    print( get_prayer_times(currentMonth, today+1, today+2, today+3))
+    return get_prayer_times(currentMonth, today+1, today+2, today+3)
 
 def get_prayer_times_for_week():
     today = datetime.now().day
