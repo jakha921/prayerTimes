@@ -40,7 +40,14 @@ def get_prayer_times_for_tomorrow():
     try:
         today = datetime.now().day
         currentMonth = datetime.now().month
-        return get_prayer_times(currentMonth, today+1)
+        if currentMonth == 2 and today == 28:
+            return get_prayer_times(currentMonth+1, 1)
+        elif currentMonth == 3 and today == 31:
+            return get_prayer_times(currentMonth+1, 1)
+        elif currentMonth == 4 and today == 30:
+            return get_prayer_times(currentMonth+1, 1)
+        else:
+            return get_prayer_times(currentMonth, today+1)
     except:
         return 'Маълумот топилмади!'
 
@@ -56,10 +63,10 @@ def get_prayer_times_for_three_days():
             next_month += get_prayer_times(currentMonth+1, 2) + '\n'
             return next_day + '\n' + next_month + '\n'
         elif currentMonth == 2 and today == 28:
-            next_day = get_prayer_times(currentMonth+1, 1)
-            next_day += get_prayer_times(currentMonth+1, 2)
+            next_day = get_prayer_times(currentMonth+1, 1) + '\n'
+            next_day += get_prayer_times(currentMonth+1, 2) + '\n'
             next_day += get_prayer_times(currentMonth+1, 3)
-            return next_day + '\n'
+            return next_day
         elif currentMonth == 3 and 1 <= today <= 28 :
             next_day = get_prayer_times(currentMonth, today+1)+ '\n'
             next_day += get_prayer_times(currentMonth, today+2)+ '\n'
